@@ -3,6 +3,9 @@ declared-services:
     label: cloudantNoSQLDB
     plan: Lite
 applications:
- - name: BoardGames
+- services:
+   - gamesDB
+   name: BoardGames
    host: AniaGames
    memory: 128M
+   
