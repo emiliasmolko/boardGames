@@ -1,4 +1,7 @@
----
+declared-services:
+  gamesDB:
+    label: cloudantNoSQLDB
+    plan: Lite
 applications:
  - name: BoardGames
    host: AniaGames
