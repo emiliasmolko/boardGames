@@ -56,7 +56,14 @@ def home():
 def get_visitor():
     if client:
         #return jsonify(list(map(lambda doc: doc['title'], db)))
-        return jsonify(result_collection = Result(db.all_docs))
+        query = Query(database, selector={'_id': {'$gt': 0}})
+# Use query as a callable limiting results to 100,
+# skipping the first 100.
+        dataFromDb = [];
+        for doc in query()['docs']:
+            dataFromDb.append(doc);
+        return jsonify(dataFromDb);
+        #return jsonify(result_collection = Result(db.all_docs))
     else:
         print('No database')
         return jsonify([])
