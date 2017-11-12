@@ -5,7 +5,7 @@ declared-services:
 applications:
 - services:
    - gamesDB
-   name: BoardGames
-   host: AniaGames
-   memory: 128M
+  name: BoardGames
+  host: AniaGames
+  memory: 128M
    
