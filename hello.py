@@ -53,7 +53,7 @@ def home():
 @app.route('/api/visitors', methods=['GET'])
 def get_visitor():
     if client:
-        return jsonify(list(map(lambda doc: doc['name'], db)))
+        return jsonify(list(map(lambda doc: doc['title'], db)))
     else:
         print('No database')
         return jsonify([])
