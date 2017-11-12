@@ -1,4 +1,6 @@
 from cloudant import Cloudant
+from cloudant.result import Result, ResultByKey
+from cloudant.error import CloudantException
 from flask import Flask, render_template, request, jsonify
 import atexit
 import cf_deployment_tracker
