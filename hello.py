@@ -17,8 +17,8 @@ db = None
 if 'VCAP_SERVICES' in os.environ:
     vcap = json.loads(os.getenv('VCAP_SERVICES'))
     print('Found VCAP_SERVICES')
-    if 'gamesDB' in vcap:
-        creds = vcap['gamesDB'][0]['credentials']
+    if 'cloudantNoSQLDB' in vcap:
+        creds = vcap['cloudantNoSQLDB'][0]['credentials']
         user = creds['username']
         password = creds['password']
         url = 'https://' + creds['host']
