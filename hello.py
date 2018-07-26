@@ -52,13 +52,11 @@ def home():
 # *     "name": "Bob"
 # * }
 # */
-@app.route('/api/visitors', methods=['GET'])
+@app.route('/api/games', methods=['GET'])
 def get_visitor():
     if client:
         #return jsonify(list(map(lambda doc: doc['title'], db)))
         query = Query(database, selector={'_id': {'$gt': 0}})
-# Use query as a callable limiting results to 100,
-# skipping the first 100.
         dataFromDb = [];
         for doc in query()['docs']:
             dataFromDb.append(doc);
@@ -79,16 +77,16 @@ def get_visitor():
 #  * [ "Bob", "Jane" ]
 #  * @return An array of all the visitor names
 #  */
-@app.route('/api/visitors', methods=['POST'])
+@app.route('/api/games', methods=['POST'])
 def put_visitor():
-    user = request.json['name']
+    game = request.json['name']
     if client:
-        data = {'name':user}
+        data = {'name':game}
         db.create_document(data)
-        return 'Hello %s! I added you to the database.' % user
+        return 'Hello %s! I added your game to the database.' % user
     else:
         print('No database')
-        return 'Hello %s!' % user
+        return 'Nie moge teraz zapisac %s! Przepraszam :-(' % game
 
 @atexit.register
 def shutdown():
